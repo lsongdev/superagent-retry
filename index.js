@@ -5,7 +5,7 @@ const debug = require('debug');
  * @param  {[type]} retries [description]
  * @return {[type]}         [description]
  */
-function retry(retries){
+function retry(retries, shouldRetry){
   function reset (request, timeout) {
     var headers = request.req._headers;
     var path = request.req.path;
@@ -24,7 +24,7 @@ function retry(retries){
       request.req.path = path;
     }
   }
-  function shouldRetry(err, res){
+  shouldRetry = shouldRetry || function (err, res){
     return !!err;
   }
   return function(request){
