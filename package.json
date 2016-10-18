@@ -1,6 +1,6 @@
 {
   "name": "superagent-retry2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A retrying layer for a superagent request",
   "main": "index.js",
   "scripts": {
